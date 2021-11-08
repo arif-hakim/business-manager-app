@@ -2,7 +2,7 @@ require('dotenv').config()
 // App
 const express = require('express')
 const app = express()
-const port = process.env.HTTP_PORT || 80
+const port = process.env.PORT || 80
 
 // GraphQL
 const { graphqlHTTP } = require('express-graphql')
