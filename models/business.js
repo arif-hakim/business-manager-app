@@ -38,11 +38,11 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     getterMethods: {
       logo: function () {
-        let dir = 'assets/uploads/logo'  
+        let dir = `${process.env.APP_URL}/uploads/logo`  
         return `${dir}/${this.getDataValue('logo')}`
       },
       commercialImage: function () {
-        let dir = 'assets/uploads/commercial_images'  
+        let dir = `${process.env.APP_URL}/uploads/commercial_images`  
         return `${dir}/${this.getDataValue('commercialImage')}`
       }
     },

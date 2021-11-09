@@ -3,6 +3,7 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 const port = process.env.PORT || 80
+const cors = require('cors')
 
 // GraphQL
 const { graphqlHTTP } = require('express-graphql')
@@ -31,6 +32,13 @@ const RootMutationType = new GraphQLObjectType({
     ...businessHandler().mutations,
   })
 })
+
+app.use(
+  express.static('assets'),
+  cors()
+)
+
+// app.use('/static', express.static('assets/uploads'))
 
 app.use('/graphql', 
 graphqlUploadExpress({ maxFileSize: 1000000 }),
